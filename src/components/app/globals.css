@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+    /* Màu chủ đạo - Nâu đất trầm */
+  --color-primary-dark: #3d332d;
+  
+  /* Màu nhấn - Vàng đồng / Cát */
+  --color-accent: #8c7851;
+  --color-accent-hover: #a68d5f;
+
+  /* Màu nền - Kem nhạt */
+  --color-site-bg: #f4f1ea;
+
+  /* Màu chữ chính - Nâu xám */
+  --color-text-main: #4a3f35;
+  
+  /* Màu bổ trợ */
+  --color-border-muted: #5d5147;
+  --color-sidebar-hover: #e5e1d8;
+}
