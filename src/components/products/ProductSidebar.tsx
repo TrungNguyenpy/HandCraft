@@ -54,7 +54,7 @@ export default function ProductSidebar() {
       <div className="flex gap-3 items-center">
         <div className="w-16 h-16 bg-gray-200 rounded-md flex items-center justify-center">
           <Image
-            src="/product1.jpg"
+            src="/products/placeholder-1.svg"
             alt="Sản phẩm"
             width={60}
             height={60}

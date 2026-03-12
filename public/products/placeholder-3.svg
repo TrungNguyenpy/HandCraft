@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#f4f1ea"/>
+  <g opacity="0.9">
+    <rect x="40" y="40" width="520" height="170" rx="24" fill="#ffffff"/>
+    <rect x="40" y="240" width="520" height="170" rx="24" fill="#ffffff"/>
+  </g>
+  <text x="50%" y="115" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="26" fill="#4a3a30" font-weight="700">
+    ArtisanHome
+  </text>
+  <text x="50%" y="155" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="16" fill="#6b5a4f">
+    Products placeholder
+  </text>
+  <text x="50%" y="315" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="20" fill="#8c7851" font-weight="700">
+    600 × 450
+  </text>
+</svg>
+
