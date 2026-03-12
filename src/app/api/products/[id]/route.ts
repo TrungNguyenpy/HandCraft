@@ -1,21 +1,11 @@
-import { query } from "@/lib/db"
 import { NextResponse } from "next/server"
+import { getProductById } from "@/features/products/api/getProductById"
 
 export async function GET(
-  req: Request,
+  _req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-
   const { id } = await params
-
-  const result = await query(
-    "SELECT * FROM products WHERE id=$1",
-    [id]
-  )
-
-  const product = result.rows[0]
-
-  return NextResponse.json(
-    JSON.parse(JSON.stringify(product))
-  )
+  const product = await getProductById(id)
+  return NextResponse.json(product)
 }

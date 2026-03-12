@@ -1,8 +1,7 @@
-import { query } from "@/lib/db"
 import { NextResponse } from "next/server"
+import { getProducts } from "@/features/products/api/getProducts"
 
 export async function GET() {
-  const result = await query("SELECT * FROM products")
-
-  return NextResponse.json(result.rows)
+  const products = await getProducts()
+  return NextResponse.json(products)
 }

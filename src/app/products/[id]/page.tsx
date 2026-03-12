@@ -1,20 +1,34 @@
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
-import ProductReviews from "../productReviews/ProductReviews"
-import { getProduct } from "@/lib/products"
+import SiteFooter from "@/components/layout/SiteFooter"
+import SiteHeader from "@/components/layout/SiteHeader"
+import ProductReviews from "@/components/products/ProductReviews"
+import { getProductById } from "@/features/products/api/getProductById"
+
+export const dynamic = "force-dynamic"
 
 type Props = {
-  params: Promise<{ id: string }>
+  params: Promise<{
+    id: string
+  }>
 }
 
-export default async function ProductDetail({ params }: Props) {
 
+export default async function ProductDetail({ params }: Props) {
   const { id } = await params
-  const product = await getProduct(id)
+  const product = await getProductById(id)
+
+  if (!product) {
+    return (
+      <div className="bg-[#f4f1ea] min-h-screen">
+        <SiteHeader />
+        <main className="max-w-7xl mx-auto px-4 py-10">Không tìm thấy sản phẩm.</main>
+        <SiteFooter />
+      </div>
+    )
+  }
   return (
     <div className="text-[#4a3f35] bg-[#f4f1ea]">
 
-      <Navbar />
+      <SiteHeader />
 
       <main className="max-w-7xl mx-auto px-4 py-10">
 
@@ -180,7 +194,7 @@ export default async function ProductDetail({ params }: Props) {
 
       </main>
 
-      <Footer />
+      <SiteFooter />
 
     </div>
   )
