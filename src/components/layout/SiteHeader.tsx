@@ -1,20 +1,40 @@
+"use client"
+
+import Link from "next/link"
 import { ShoppingCart, Search, Heart } from "lucide-react"
+import { getCartCount, useCartStore } from "@/features/cart/store/useCartStore"
 
 export default function SiteHeader() {
+  const count = useCartStore((s) => getCartCount(s.items))
+
   return (
     <nav className="bg-[#4a3a30] text-white px-10 py-4 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="bg-[#bfa574] w-10 h-10 flex items-center justify-center rounded-full">
+        <Link
+          href="/"
+          className="bg-[#bfa574] w-10 h-10 flex items-center justify-center rounded-full"
+        >
           <Heart size={20} />
-        </div>
+        </Link>
 
-        <h1 className="text-2xl font-semibold">ArtisanHome</h1>
+        <Link href="/" className="text-2xl font-semibold">
+          ArtisanHome
+        </Link>
       </div>
 
       <ul className="flex gap-10 text-lg">
-        <li className="cursor-pointer hover:text-[#d6c4a1]">Trang chủ</li>
-        <li className="cursor-pointer border-b-2 border-[#d6c4a1] pb-1 text-[#d6c4a1]">
-          Cửa hàng
+        <li>
+          <Link href="/" className="cursor-pointer hover:text-[#d6c4a1]">
+            Trang chủ
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/products"
+            className="cursor-pointer hover:text-[#d6c4a1]"
+          >
+            Cửa hàng
+          </Link>
         </li>
         <li className="cursor-pointer hover:text-[#d6c4a1]">Về chúng tôi</li>
         <li className="cursor-pointer hover:text-[#d6c4a1]">Liên hệ</li>
@@ -30,12 +50,14 @@ export default function SiteHeader() {
           <Search size={18} />
         </div>
 
-        <div className="relative cursor-pointer">
+        <Link href="/cart" className="relative cursor-pointer">
           <ShoppingCart size={24} />
-          <span className="absolute -top-2 -right-2 bg-[#d6c4a1] text-black text-xs w-5 h-5 flex items-center justify-center rounded-full">
-            3
-          </span>
-        </div>
+          {count > 0 ? (
+            <span className="absolute -top-2 -right-2 bg-[#d6c4a1] text-black text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              {count}
+            </span>
+          ) : null}
+        </Link>
       </div>
     </nav>
   )
