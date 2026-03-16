@@ -98,3 +98,27 @@ npm run dev
 - `GET /api/products?q=&categoryId=&minPrice=&maxPrice=&page=&limit=`
 - `GET /api/products/:id`
 
+1. b844f38 Update dependencies for scalable architecture
+
+Prisma v6, thêm Zod + Zustand, remove pg
+2. 0eecb6e Standardize data layer with Prisma
+
+prisma/schema.prisma, src/lib/prisma/client.ts, refactor getProducts/getProductById, remove src/lib/db
+3. 1363e06 Restructure routes with store layout
+
+Route group (store) + layout chung header/footer, move storefront pages (giữ URL)
+5. 8f4b502 Harden products API with validation
+
+Zod schemas + pagination/filter/search + error handling cho /api/products*
+6. f2829f9 Improve image handling and placeholders
+
+next.config.ts remotePatterns + public/products/* placeholders + fix sidebar image
+df65eb5 Extract product detail components
+
+Tách src/components/product/* và compose lại page detail
+7. 873cfe2 Implement cart state with persistence
+
+Zustand store + persist localStorage + wire header badge/add-to-cart/cart page
+8. 239742f Add app scaffolding and docs
+
+app/loading|error|not-found, route group (auth) skeleton, update README.md, thêm PROJECT_NOTES.md
